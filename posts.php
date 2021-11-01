@@ -1,26 +1,46 @@
-<?php
-include "connection.php";
-include "header.php";
-include "side-bar.php";
+<!doctype html>
+<html lang="en">
+<head>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
+    <title>Vivify Blog</title>
 
-$query = $conn->query("SELECT * FROM posts");
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-?>
+    <!-- Custom styles for this template -->
+    <link href="styles/blog.css" rel="stylesheet">
+</head>
+
+<body>
+<?php include "connection.php";?>
+<?php include "header.php";?>
+<?php include "side-bar.php";?>
+
 
 <main role="main" class="container">
     <div class="row">
+    
+        
         <div class="col-sm-8 blog-main">
             </div><!-- /.blog-post -->
             <div class="blog-post">
+            <?php  $query = $conn->query("SELECT * FROM posts");?>
             <?php foreach($query as $element){ ?>
-                <h2 class="blog-post-title"><a href = "#"><?php echo $element["Title"]?></a></h2>
+                <h2 class="blog-post-title"><a href = "single-post.php"><?php echo $element["Title"]?></a></h2>
                 <p class="blog-post-meta"><?php echo $element["Created_at"]?></p> <a href="#"><?php echo $element["Autor"]?></a></p>
                 <p><?php echo $element["Body"]?>
    
     <?php } ?>
+    
+    
 </div>
+
 
             <nav class="blog-pagination">
                 <a class="btn btn-outline-primary" href="#">Older</a>
@@ -28,5 +48,20 @@ $query = $conn->query("SELECT * FROM posts");
             </nav>
 
         </div>
-    
+      
+        
+        </div><!-- /.blog-main -->
+       
+        
+        
+
+      
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<?php include "footer.php";?>
+</body>
+</html>
         
