@@ -1,4 +1,5 @@
 <?php
+include "connection.php";
 include "header.php";
 include "side-bar.php";
 
