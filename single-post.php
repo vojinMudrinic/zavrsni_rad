@@ -31,7 +31,7 @@
 
 <?php
                 if (isset($_GET['post_id'])) {
-                    $sql = "SELECT p.id, p.Title, p.Body,  p.Created_at
+                    $sql = "SELECT p.id, p.Title, p.Body,p.Autor,  p.Created_at
                     FROM posts as p INNER JOIN comments AS c ON p.id = c.Post_id
                     WHERE p.id = {$_GET['post_id']}";
                     $statement = $conn->prepare($sql);
@@ -40,6 +40,29 @@
                     $singlePost = $statement->fetch();
                 }?>
 
-                <?php var_dump($singlePost);?>
+
+                <main role="main" class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
+                <h2 class="blog-post-title"><?php echo $singlePost["Title"]?></a></h2>
+                <p class="blog-post-meta"><?php echo $singlePost["Created_at"]?></p> <a href="#"><?php echo $singlePost["Autor"]?></a></p>
+                <p><?php echo $singlePost["Body"]?>
+   
+
+
+                
+   
+    
+    
+</div>
+
+<nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+          </nav>
+        </div>
+        <?php include "side-bar.php"; ?>
+        <?php include "footer.php"?>
 </body>
 </html>
