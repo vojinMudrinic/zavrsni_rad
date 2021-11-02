@@ -1,5 +1,11 @@
-<?php
-include "header.php";
-include "footer.php";
-include "side-bar.php";
-?>
+<?php include "connection.php"?>
+<ul>
+                   
+<?php foreach($comments as $comment){?>
+    <li><strong><?php echo $comment["Autor"] ." ";?></strong>
+        <?php echo $comment["Text"];?></li>
+</br>
+
+<?php } ?>
+
+</ul>

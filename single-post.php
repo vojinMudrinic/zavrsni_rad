@@ -31,13 +31,20 @@
 
 <?php
                 if (isset($_GET['post_id'])) {
-                    $sql = "SELECT p.id, p.Title, p.Body,p.Autor,  p.Created_at
-                    FROM posts as p INNER JOIN comments AS c ON p.id = c.Post_id
+                    $sql = "SELECT *FROM posts as p 
                     WHERE p.id = {$_GET['post_id']}";
                     $statement = $conn->prepare($sql);
                     $statement->execute();
                     $statement->setFetchMode(PDO::FETCH_ASSOC);
                     $singlePost = $statement->fetch();
+                    
+                    $sql2 = "SELECT c.Autor, c.Post_id, c.Text FROM comments AS c INNER JOIN posts as p ON c.Post_id = p.id WHERE c.Post_id = {$_GET['post_id']}";
+                    $statement = $conn->prepare($sql2);
+                    $statement->execute();
+                    $statement->setFetchMode(PDO::FETCH_ASSOC);
+                    $comments =  $statement->fetchAll();
+
+        
                 }?>
 
 
@@ -48,14 +55,22 @@
                 <h2 class="blog-post-title"><?php echo $singlePost["Title"]?></a></h2>
                 <p class="blog-post-meta"><?php echo $singlePost["Created_at"]?></p> <a href="#"><?php echo $singlePost["Autor"]?></a></p>
                 <p><?php echo $singlePost["Body"]?>
-   
+                <?php include "comments.php"?>
 
+
+            
+
+
+
+</div>
+
+
+              
+                 
 
                 
-   
-    
-    
-</div>
+
+            
 
 <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>
