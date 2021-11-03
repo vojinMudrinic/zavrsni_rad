@@ -29,7 +29,7 @@
          include "header.php";?>
 
 
-<?php
+              <?php
                 if (isset($_GET['post_id'])) {
                     $sql = "SELECT *FROM posts as p 
                     WHERE p.id = {$_GET['post_id']}";
@@ -57,20 +57,7 @@
                 <p><?php echo $singlePost["Body"]?>
                 <?php include "comments.php"?>
 
-
-            
-
-
-
-</div>
-
-
-              
-                 
-
-                
-
-            
+      </div>        
 
 <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>
