@@ -1,8 +1,8 @@
-<?php include "connection.php"?>
+
 <ul>
                    
 <?php foreach($comments as $comment){?>
-    <li><strong><?php echo $comment["Autor"] ." ";?></strong>
+    <li><strong><?php echo $comment["Author"] ." ";?></strong>
         <?php echo $comment["Text"];?></li>
 </br>
 

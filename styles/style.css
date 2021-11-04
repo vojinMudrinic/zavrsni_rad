@@ -28,9 +28,3 @@ h6,
 .h6 {
   color: #b34848;
 }
-
-.input-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

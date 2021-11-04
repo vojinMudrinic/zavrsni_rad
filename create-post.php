@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $title = $_POST["title"];
       $autor = $_POST["autor"];
     
-    $sql = "INSERT INTO posts (Title,Autor,Body) VALUES ('$title','$autor','$body')";
+    $sql = "INSERT INTO posts (Title,Author,Body) VALUES ('$title','$autor','$body')";
     $statement = $conn->prepare($sql);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);

@@ -37,7 +37,7 @@
           <?php  $query = $conn->query("SELECT * FROM posts");?>
             <?php foreach($query as $element){ ?>
                 <h2 class="blog-post-title"><a href = "single-post.php?post_id=<?php echo($element['id']) ?>"><?php echo $element["Title"]?></a></h2>
-                <p class="blog-post-meta"><?php echo $element["Created_at"]?></p> <a href="#"><?php echo $element["Autor"]?></a></p>
+                <p class="blog-post-meta"><?php echo $element["Created_at"]?></p> <a href="#"><?php echo $element["Author"]?></a></p>
                 <p><?php echo $element["Body"]?>
    
     <?php } ?>

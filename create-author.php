@@ -14,15 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if (empty($_POST["prezime"])){
     
       $err = "*All fields required!";
-    }else if (empty($_POST["gender"])) {
+    }else if (empty($_POST["pol"])) {
        
       $err = "*All fields required!";
     } else {
       $ime = $_POST["ime"];
       $prezime = $_POST["prezime"];
-      $pol = $_POST["gender"];
+      $pol = $_POST["pol"];
     
-    $sql = "INSERT INTO autor (ime,prezime,pol) VALUES ('$ime','$prezime','$pol')";
+    $sql = "INSERT INTO author (ime,prezime,pol) VALUES ('$ime','$prezime','$pol')";
     $statement = $conn->prepare($sql);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -72,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type = text name = "prezime" placeholder = "Prezime">
 </br>
 </br>
-   <input type = "radio" name = "gender" value = "M">M
-   <input type = "radio" name = "gender" value = "Z">Z <?php echo $err?>
+   <input type = "radio" name = "pol" value = "M">M
+   <input type = "radio" name = "pol" value = "Z">Z <?php echo $err?>
 </br>
 </br>
 <input type = "hidden" name = "id">
@@ -89,4 +89,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php include "side-bar.php"; ?>
         <?php include "footer.php"?>
 </body>
-</html>
+</html
