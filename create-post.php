@@ -82,9 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <select name="author" class="custom-select">
 <?php  $query = $conn->query("SELECT * FROM author");?>
             <?php foreach($query as $author){ ?>
-              <option value="<?php echo $author["id"];?>"><?php echo $author["Ime"] . ' ' . $author['Prezime'];  ?></option>
-              <?php $authorId = $author["id"]?> 
-             
+              <option value="<?php echo $author["id"];?>"><?php echo $author["Ime"] . ' ' . $author['Prezime'];  ?></option>     
     <?php } ?>
     <select name="author" class="custom-select">
 

@@ -34,10 +34,10 @@
       <div class="row">
         <div class="col-sm-8 blog-main">
           <div class="blog-post">
-          <?php  $query = $conn->query("SELECT p.Title,p.Body,p.Created_at,p.id,a.ime,a.prezime,a.pol FROM posts AS p INNER JOIN author AS a ON p.author_id = a.id");?>
+          <?php  $query = $conn->query("SELECT p.Title,p.Body,p.Created_at,p.id,a.ime,a.prezime,a.Pol FROM posts AS p INNER JOIN author AS a ON p.author_id = a.id");?>
             <?php foreach($query as $element){ ?>
                 <h2 class="blog-post-title"><a href = "single-post.php?post_id=<?php echo($element['id']) ?>"><?php echo $element["Title"]?></a></h2>
-                <p class="blog-post-meta"><?php echo $element["Created_at"]?></p> <a href="#"><?php echo $element["ime"]." ".$element["prezime"]?></a></p>
+                <p class="blog-post-meta"><?php echo $element["Created_at"]?></p> <a style="color: <?php if($element["Pol"] =="Z"){echo "pink";} else if($element["Pol"] =="M"){echo "blue";}?>;" href="#"><?php echo $element["ime"]." ".$element["prezime"]?></a></p>
                 <p><?php echo $element["Body"]?>
    
     <?php } ?>
