@@ -1,4 +1,5 @@
 <?php
+
 include "connection.php";
 include "header.php";
 date_default_timezone_set('Europe/Paris');
@@ -21,12 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $ime = $_POST["ime"];
       $prezime = $_POST["prezime"];
       $pol = $_POST["pol"];
+      
     
     $sql = "INSERT INTO author (ime,prezime,pol) VALUES ('$ime','$prezime','$pol')";
     $statement = $conn->prepare($sql);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
-    header("location:posts.php");
+
+    
+    header("location:create-post.php");
         
 
 }}

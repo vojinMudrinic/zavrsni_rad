@@ -1,42 +1,50 @@
 <?php
+
 include "connection.php";
 include "header.php";
 date_default_timezone_set('Europe/Paris');
+
+
 ?>
 
 <?php
 $err = "";
 
+?>
+
+<?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["autor"])) {
-      
-      $err = "*All fields required!";
-    } else if (empty($_POST["title"])){
+    
+     if (empty($_POST["title"])){
     
       $err = "*All fields required!";
     }else if (empty($_POST["body"])) {
        
       $err = "*All fields required!";
     } else {
-      $body = $_POST["body"];
-      $title = $_POST["title"];
-      $autor = $_POST["autor"];
+      $title = $_POST['title'];
+			$body = $_POST['body'];
+			$author_id = $_POST['author'];
+     
+     
+     
     
-    $sql = "INSERT INTO posts (Title,Author,Body) VALUES ('$title','$autor','$body')";
+    $sql = "INSERT INTO posts (Title,Body,author_id) VALUES ('$title','$body','$author_id')";
     $statement = $conn->prepare($sql);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     header("location:posts.php");
+
+  
         
 
-}}
-
-
-
-
-
+}};
 
 ?>
+
+
+  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +72,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
+
+
+    
+    
     <div class = "input-container">
 <form method = "POST" action = "create-post.php">
+<label for="Authors">Authors</label>
+<select name="author" class="custom-select">
+<?php  $query = $conn->query("SELECT * FROM author");?>
+            <?php foreach($query as $author){ ?>
+              <option value="<?php echo $author["id"];?>"><?php echo $author["Ime"] . ' ' . $author['Prezime'];  ?></option>
+              <?php $authorId = $author["id"]?> 
+             
+    <?php } ?>
+    <select name="author" class="custom-select">
+
+            </br>
     <input type = "text" name = "title" placeholder = "Title">
-</br>
-</br>
-    <input type = text name = "autor" placeholder = "Ime autora">
+   
+
 </br>
 </br>
    <textarea name ="body"></textarea><?php echo $err?>
@@ -80,8 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input name ="submitBtn" type = "submit" value = "post">
     
 </div>
-
-
 
           </nav>
         </div>
