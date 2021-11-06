@@ -24,6 +24,7 @@
     <link href="styles/blog.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" />
   </head>
+  <body>
   <?php  include "connection.php";
          include "header.php";?>
  
@@ -42,12 +43,7 @@
    
     <?php } ?>
     
-    
 </div>
-
-    
-  
-
           <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>
             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
@@ -55,3 +51,5 @@
         </div>
         <?php include "side-bar.php"; ?>
         <?php include "footer.php"?>
+            </body>
+            </html>
