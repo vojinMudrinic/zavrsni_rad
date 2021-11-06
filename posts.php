@@ -25,7 +25,7 @@
     <link href="styles/style.css" rel="stylesheet" />
   </head>
   <body>
-  <?php  include "connection.php";
+  <?php  $page = 'Home';include "connection.php";
          include "header.php";?>
  
 

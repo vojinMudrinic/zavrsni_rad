@@ -2,9 +2,9 @@
       <div class="blog-masthead">
         <div class="container">
           <nav class="nav">
-            <a class="nav-link active" href="posts.php">Home</a>
-            <a class="nav-link" href="create-author.php">Dodaj autora</a>
-            <a class="nav-link" href="create-post.php">Dodaj Post</a>
+            <a class="<?php if($page == 'Home'){echo "nav-link active";}else{echo "nav-link";}?>" href="posts.php">Home</a>
+            <a class=" <?php if($page == 'Dodaj autora'){echo "nav-link active";}else{echo "nav-link";}?>" href="create-author.php">Dodaj autora</a>
+            <a class="nav-link <?php if($page == 'Dodaj Post'){echo "nav-link active";}else{echo "nav-link";}?>" href="create-post.php">Dodaj Post</a>
           </nav>
         </div>
       </div>

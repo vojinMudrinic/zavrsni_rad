@@ -1,5 +1,5 @@
 <?php
-
+$page = 'Dodaj Post';
 include "connection.php";
 include "header.php";
 date_default_timezone_set('Europe/Paris');

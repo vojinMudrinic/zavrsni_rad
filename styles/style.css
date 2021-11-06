@@ -28,3 +28,6 @@ h6,
 .h6 {
   color: #b34848;
 }
+.nav-link.active {
+  color: #fff;
+}

@@ -1,5 +1,5 @@
 <?php
-
+$page = 'Dodaj autora';
 include "connection.php";
 include "header.php";
 date_default_timezone_set('Europe/Paris');
