@@ -74,9 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 
-    
-    
-    <div class = "input-container">
+<main role="main" class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
 <form method = "POST" action = "create-post.php">
 <label for="Authors">Authors</label>
 <select name="author" class="custom-select">
@@ -85,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <option value="<?php echo $author["id"];?>"><?php echo $author["Ime"] . ' ' . $author['Prezime'];  ?></option>     
     <?php } ?>
     <select name="author" class="custom-select">
-
+    </br>
             </br>
     <input type = "text" name = "title" placeholder = "Title">
    
@@ -100,8 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input name ="submitBtn" type = "submit" value = "post">
     
 </div>
+          
 
-          </nav>
+          
         </div>
         <?php include "side-bar.php"; ?>
         <?php include "footer.php"?>

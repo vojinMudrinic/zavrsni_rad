@@ -68,7 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-    <div class = "input-container">
+<main role="main" class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <div class="blog-post">
 <form method = "POST" action = "create-author.php">
     <input type = "text" name = "ime" placeholder = "Ime">
 </br>
@@ -85,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input name ="submitBtn" type = "submit" value = "submit">
     
 </div>
+
 
 
 
